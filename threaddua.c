@@ -28,9 +28,9 @@ int main(void)
     {
         err = pthread_create(&(tid[i]), NULL, &doSomeThing, NULL);
         if (err != 0) 
-            fprintf(stderr, "cant create thread :[%s]", strerror(err));
+            fprintf(stderr, "cant create thread :[%s]\n", strerror(err));
         else 
-            fprintf(stderr, "Thread create successfully");
+            fprintf(stderr, "Thread create successfully\n");
         i++;
     }
 
@@ -42,4 +42,3 @@ int main(void)
 
     return 0;
 }
-
