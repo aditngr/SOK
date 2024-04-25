@@ -11,9 +11,9 @@ void* doSomeThing(void *arg) {
     pthread_t id = pthread_self();
     if(pthread_equal(id, tid[0])) 
     {
-        printf("\n First thread processing\n");
+        fprintf(stderr, "First thread processing\n");
     } else {
-        printf("\n Second thread processing\n");
+        fprintf(stderr, "Second thread processing\n");
     }
 
     for(i = 0; i<(0xFFFFFFFF); i++);
@@ -28,9 +28,9 @@ int main(void)
     {
         err = pthread_create(&(tid[i]), NULL, &doSomeThing, NULL);
         if (err != 0) 
-            printf("\n cant create thread :[%s]", strerror(err));
+            fprintf(stderr, "cant create thread :[%s]", strerror(err));
         else 
-            printf("\n Thread create successfully");
+            fprintf(stderr, "Thread create successfully");
         i++;
     }
 
@@ -38,7 +38,8 @@ int main(void)
     pthread_join(tid[0], NULL);
     pthread_join(tid[1], NULL);
 
-    printf("\n Both threads have finished processing.\n");
+    fprintf(stderr, "Both threads have finished processing.\n");
 
     return 0;
 }
+
